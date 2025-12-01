@@ -1,0 +1,9 @@
+/pdf/
+/venv/
+/.vscode/
+.env
+**/*.out
+**/*.txt
+**/*.eps
+
+report/**
