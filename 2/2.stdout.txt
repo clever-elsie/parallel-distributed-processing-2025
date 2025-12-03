@@ -1,0 +1,18 @@
+numactl --physcpubind=0 env OMP_NUM_THREADS=1 ../1/3.out
+Average: 0.000904 sec (Valid: 5000/5000)
+
+numactl --physcpubind=0 env OMP_NUM_THREADS=4 ../1/3.out
+Average: 0.001070 sec (Valid: 5000/5000)
+
+numactl --cpunodebind=0 env OMP_NUM_THREADS=4 ../1/3.out
+Average: 0.000678 sec (Valid: 5000/5000)
+
+numactl --cpunodebind=0 ../1/3.out
+Average: 0.001247 sec (Valid: 5000/5000)
+
+numactl --cpunodebind=0 --membind=1 ../1/3.out
+Average: 0.001366 sec (Valid: 5000/5000)
+
+numactl --cpunodebind=1 --membind=0 ../1/3.out
+Average: 0.001328 sec (Valid: 5000/5000)
+

@@ -1,0 +1,6 @@
+./2.out one_path
+Time: 0.274592 ms
+Valid
+./2.out two_path
+Time: 1.37011 ms
+Valid

@@ -1,0 +1,13 @@
+shared memory
+96KB/16KB=6block
+128thread/block * 6block = 768 thread
+
+register
+256KB / 96B = 2730.66 thread
+
+min(768, 2730, 2048) = 768
+768/2048=37.5%
+
+
+1ブロック当たりのshared memoryの使用量を減らしてブロック数を増やすか，
+同じ使用量でスレッド数を増やして使用効率をあげる．

@@ -1,0 +1,4 @@
+./3.out before
+Time: 85.9075 ms
+./3.out after
+Time: 5.50822 ms

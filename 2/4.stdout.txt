@@ -1,0 +1,9 @@
+./4.out
+Copy: 0.035264 ms
+Copy: 2780 us with memcpy
+Scala: 0.039616 ms
+Scala: 2687 us with memcpy
+Add: 0.044768 ms
+Add: 2639 us with memcpy
+Triad: 0.047936 ms
+Triad: 2632 us with memcpy

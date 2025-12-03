@@ -20,3 +20,9 @@
 
 4: 4.out
 	./4.out
+	
+4-cpu.out: 4-cpu.cpp Makefile
+	g++ -Ofast -march=native -mtune=native -std=c++20 4-cpu.cpp -o 4-cpu.out
+
+4cpu: 4-cpu.out
+	./4-cpu.out 2>/dev/null

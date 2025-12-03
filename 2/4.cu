@@ -2,6 +2,7 @@
 #include <cuda_runtime.h>
 #include <cstdlib>
 #include <iostream>
+#include <chrono>
 
 __global__ void Copy(float*A,float*B){
   const int index=blockIdx.x*blockDim.x+threadIdx.x;
@@ -34,6 +35,7 @@ void check(const char* name, F f, Args... args){
   cudaEvent_t start, end;
   cudaEventCreate(&start);
   cudaEventCreate(&end);
+  auto startm=std::chrono::high_resolution_clock::now();
   cudaMemcpy(dm[0], m[0], n*n*sizeof(float), cudaMemcpyHostToDevice);
   cudaMemcpy(dm[1], m[1], n*n*sizeof(float), cudaMemcpyHostToDevice);
   cudaEventRecord(start, 0);
@@ -41,9 +43,11 @@ void check(const char* name, F f, Args... args){
   cudaEventRecord(end, 0);
   cudaEventSynchronize(end);
   cudaMemcpy(m[0], dm[0], n*n*sizeof(float), cudaMemcpyDeviceToHost);
+  auto endm=std::chrono::high_resolution_clock::now();
   float time;
   cudaEventElapsedTime(&time, start, end);
   std::cout<<name<<": "<<time<<" ms"<<std::endl;
+  std::cout<<name<<": "<<std::chrono::duration_cast<std::chrono::microseconds>(endm-startm).count()<<" us with memcpy"<<std::endl;
   cudaEventDestroy(start);
   cudaEventDestroy(end);
 }

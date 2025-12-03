@@ -11,7 +11,8 @@ all: 1 2 3
 	./1.out
 
 2: 2.out
-	./2.out
+	./2.out one_path
+	./2.out two_path
 
 3: 3.out
 	./3.out

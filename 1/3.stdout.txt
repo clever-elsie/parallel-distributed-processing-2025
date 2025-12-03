@@ -1,0 +1,124 @@
+
+# No Optimization (-O0) でコンパイル
+OMP_NUM_THREADS=1 ./3.out reduction
+execmode: reduction
+duration time 0.003664 sec
+sum is 1000000
+OMP_NUM_THREADS=2 ./3.out reduction
+execmode: reduction
+duration time 0.003019 sec
+sum is 1000000
+OMP_NUM_THREADS=4 ./3.out reduction
+execmode: reduction
+duration time 0.001915 sec
+sum is 1000000
+OMP_NUM_THREADS=1 ./3.out manual_reduction_with_atomic
+execmode: manual_reduction_with_atomic
+duration time 0.003625 sec
+sum is 1000000
+OMP_NUM_THREADS=2 ./3.out manual_reduction_with_atomic
+execmode: manual_reduction_with_atomic
+duration time 0.002947 sec
+sum is 1000000
+OMP_NUM_THREADS=4 ./3.out manual_reduction_with_atomic
+execmode: manual_reduction_with_atomic
+duration time 0.001906 sec
+sum is 1000000
+OMP_NUM_THREADS=1 ./3.out atomic_vector
+execmode: atomic_vector
+duration time 0.013499 sec
+sum is 1000000
+OMP_NUM_THREADS=2 ./3.out atomic_vector
+execmode: atomic_vector
+duration time 0.020287 sec
+sum is 1000000
+OMP_NUM_THREADS=4 ./3.out atomic_vector
+execmode: atomic_vector
+duration time 0.020553 sec
+sum is 1000000
+OMP_NUM_THREADS=1 ./3.out std::mutex
+execmode: std::mutex
+duration time 0.037727 sec
+sum is 1000000
+OMP_NUM_THREADS=2 ./3.out std::mutex
+execmode: std::mutex
+duration time 0.143794 sec
+sum is 1000000
+OMP_NUM_THREADS=4 ./3.out std::mutex
+execmode: std::mutex
+duration time 0.282885 sec
+sum is 1000000
+OMP_NUM_THREADS=1 ./3.out pthread_mutex
+execmode: pthread_mutex
+duration time 0.010260 sec
+sum is 1000000
+OMP_NUM_THREADS=2 ./3.out pthread_mutex
+execmode: pthread_mutex
+duration time 0.125454 sec
+sum is 1000000
+OMP_NUM_THREADS=4 ./3.out pthread_mutex
+execmode: pthread_mutex
+duration time 0.197934 sec
+sum is 1000000
+
+# Optimization (-O2) でコンパイル
+OMP_NUM_THREADS=1 ./3.out reduction
+execmode: reduction
+duration time 0.001070 sec
+sum is 1000000
+OMP_NUM_THREADS=2 ./3.out reduction
+execmode: reduction
+duration time 0.000702 sec
+sum is 1000000
+OMP_NUM_THREADS=4 ./3.out reduction
+execmode: reduction
+duration time 0.000819 sec
+sum is 1000000
+OMP_NUM_THREADS=1 ./3.out manual_reduction_with_atomic
+execmode: manual_reduction_with_atomic
+duration time 0.001026 sec
+sum is 1000000
+OMP_NUM_THREADS=2 ./3.out manual_reduction_with_atomic
+execmode: manual_reduction_with_atomic
+duration time 0.001218 sec
+sum is 1000000
+OMP_NUM_THREADS=4 ./3.out manual_reduction_with_atomic
+execmode: manual_reduction_with_atomic
+duration time 0.001077 sec
+sum is 1000000
+OMP_NUM_THREADS=1 ./3.out atomic_vector
+execmode: atomic_vector
+duration time 0.007296 sec
+sum is 1000000
+OMP_NUM_THREADS=2 ./3.out atomic_vector
+execmode: atomic_vector
+duration time 0.018063 sec
+sum is 1000000
+OMP_NUM_THREADS=4 ./3.out atomic_vector
+execmode: atomic_vector
+duration time 0.018057 sec
+sum is 1000000
+OMP_NUM_THREADS=1 ./3.out std::mutex
+execmode: std::mutex
+duration time 0.010553 sec
+sum is 1000000
+OMP_NUM_THREADS=2 ./3.out std::mutex
+execmode: std::mutex
+duration time 0.102733 sec
+sum is 1000000
+OMP_NUM_THREADS=4 ./3.out std::mutex
+execmode: std::mutex
+duration time 0.192282 sec
+sum is 1000000
+OMP_NUM_THREADS=1 ./3.out pthread_mutex
+execmode: pthread_mutex
+duration time 0.008381 sec
+sum is 1000000
+OMP_NUM_THREADS=2 ./3.out pthread_mutex
+execmode: pthread_mutex
+duration time 0.102944 sec
+sum is 1000000
+OMP_NUM_THREADS=4 ./3.out pthread_mutex
+execmode: pthread_mutex
+duration time 0.188208 sec
+sum is 1000000

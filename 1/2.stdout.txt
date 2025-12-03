@@ -1,0 +1,34 @@
+
+# No Optimization (-O0) でコンパイル
+48 threads seq: 0.003686 sec.
+48 threads cri: 0.748701 sec.
+48 threads cri_mutex: 0.275869 sec.
+48 threads red: 0.000123 sec.
+48 threads atomic: 0.027572 sec.
+2 threads seq: 0.002687 sec.
+2 threads cri: 0.054419 sec.
+2 threads cri_mutex: 0.091134 sec.
+2 threads red: 0.001312 sec.
+2 threads atomic: 0.040087 sec.
+4 threads seq: 0.003698 sec.
+4 threads cri: 0.090114 sec.
+4 threads cri_mutex: 0.116969 sec.
+4 threads red: 0.000697 sec.
+4 threads atomic: 0.039621 sec.
+
+# Optimization (-O2) でコンパイル
+48 threads seq: 0.000000 sec.
+48 threads cri: 0.266287 sec.
+48 threads cri_mutex: 0.127369 sec.
+48 threads red: 0.000018 sec.
+48 threads atomic: 0.028331 sec.
+2 threads seq: 0.000000 sec.
+2 threads cri: 0.088357 sec.
+2 threads cri_mutex: 0.069453 sec.
+2 threads red: 0.000002 sec.
+2 threads atomic: 0.021716 sec.
+4 threads seq: 0.000000 sec.
+4 threads cri: 0.105473 sec.
+4 threads cri_mutex: 0.086423 sec.
+4 threads red: 0.000035 sec.
+4 threads atomic: 0.028910 sec.

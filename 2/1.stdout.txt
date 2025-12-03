@@ -1,0 +1,149 @@
+mode: linear
+size: 1
+Times: 43us
+OK: OK0
+
+mode: linear
+size: 2
+Times: 74us 90us
+OK: OK0 OK1
+
+mode: linear
+size: 4
+Times: 86us 105us 107us 108us
+OK: OK0 OK1 OK2 OK3
+
+mode: linear
+size: 8
+Times: 215us 215us 218us 284us 287us 299us 309us 314us
+OK: OK0 OK1 OK2 OK3 OK4 OK5 OK6 OK7
+
+mode: linear
+size: 16
+Times: 501us 542us 548us 553us 607us 639us 644us 645us 646us 646us 646us 652us 656us 656us 665us 668us
+OK: OK0 OK1 OK2 OK3 OK4 OK5 OK6 OK7 OK8 OK9 OK10 OK11 OK12 OK13 OK14 OK15
+
+mode: linear
+size: 24
+Times: 664us 730us 735us 744us 801us 821us 830us 841us 842us 843us 844us 846us 848us 851us 852us 876us 890us 894us 898us 898us 903us 903us 912us 922us
+OK: OK0 OK1 OK2 OK3 OK4 OK5 OK6 OK7 OK8 OK9 OK10 OK11 OK12 OK13 OK14 OK15 OK16 OK17 OK18 OK19 OK20 OK21 OK22 OK23
+
+mode: square
+size: 1
+Times: 68us
+OK: OK0
+
+mode: square
+size: 2
+Times: 51us 72us
+OK: OK0 OK1
+
+mode: square
+size: 4
+Times: 123us 127us 133us 135us
+OK: OK0 OK1 OK2 OK3
+
+mode: square
+size: 8
+Times: 275us 341us 353us 362us 398us 410us 416us 416us
+OK: OK0 OK1 OK2 OK3 OK4 OK5 OK6 OK7
+
+mode: square
+size: 16
+Times: 510us 517us 543us 545us 553us 570us 571us 574us 580us 650us 655us 657us 661us 681us 699us 724us
+OK: OK0 OK1 OK2 OK3 OK4 OK5 OK6 OK7 OK8 OK9 OK10 OK11 OK12 OK13 OK14 OK15
+
+mode: square
+size: 24
+Times: 667us 685us 688us 707us 726us 740us 747us 748us 772us 781us 793us 815us 841us 854us 937us 948us 951us 975us 977us 992us 1002us 1009us 1027us 1078us
+OK: OK0 OK1 OK2 OK3 OK4 OK5 OK6 OK7 OK8 OK9 OK10 OK11 OK12 OK13 OK14 OK15 OK16 OK17 OK18 OK19 OK20 OK21 OK22 OK23
+
+mode: ring
+size: 1
+Times: 25us
+OK: OK0
+
+mode: ring
+size: 2
+Times: 47us 82us
+OK: OK0 OK1
+
+mode: ring
+size: 4
+Times: 69us 94us 95us 96us
+OK: OK0 OK1 OK2 OK3
+
+mode: ring
+size: 8
+Times: 94us 109us 109us 110us 110us 110us 118us 121us
+OK: OK0 OK1 OK2 OK3 OK4 OK5 OK6 OK7
+
+mode: ring
+size: 16
+Times: 281us 282us 291us 291us 294us 295us 298us 299us 301us 301us 303us 303us 304us 305us 307us 308us
+OK: OK0 OK1 OK2 OK3 OK4 OK5 OK6 OK7 OK8 OK9 OK10 OK11 OK12 OK13 OK14 OK15
+
+mode: ring
+size: 24
+Times: 461us 464us 465us 474us 477us 481us 484us 490us 497us 500us 505us 506us 513us 520us 522us 523us 525us 530us 532us 533us 539us 546us 555us 560us
+OK: OK0 OK1 OK2 OK3 OK4 OK5 OK6 OK7 OK8 OK9 OK10 OK11 OK12 OK13 OK14 OK15 OK16 OK17 OK18 OK19 OK20 OK21 OK22 OK23
+
+mode: tree
+size: 1
+Times: 6us
+OK: OK0
+
+mode: tree
+size: 2
+Times: 69us 93us
+OK: OK0 OK1
+
+mode: tree
+size: 4
+Times: 29us 55us 57us 57us
+OK: OK0 OK1 OK2 OK3
+
+mode: tree
+size: 8
+Times: 31us 53us 55us 56us 57us 58us 62us 62us
+OK: OK0 OK1 OK2 OK3 OK4 OK5 OK6 OK7
+
+mode: tree
+size: 16
+Times: 88us 123us 130us 133us 135us 138us 139us 139us 140us 143us 143us 144us 144us 145us 147us 147us
+OK: OK0 OK1 OK2 OK3 OK4 OK5 OK6 OK7 OK8 OK9 OK10 OK11 OK12 OK13 OK14 OK15
+
+mode: tree
+size: 24
+Times: 68us 106us 149us 155us 159us 164us 166us 168us 172us 172us 173us 174us 174us 175us 178us 179us 179us 184us 185us 187us 202us 202us 205us 211us
+OK: OK0 OK1 OK2 OK3 OK4 OK5 OK6 OK7 OK8 OK9 OK10 OK11 OK12 OK13 OK14 OK15 OK16 OK17 OK18 OK19 OK20 OK21 OK22 OK23
+
+mode: hypercube
+size: 1
+Times: 1us
+OK: OK0
+
+mode: hypercube
+size: 2
+Times: 43us 117us
+OK: OK0 OK1
+
+mode: hypercube
+size: 4
+Times: 21us 42us 43us 47us
+OK: OK0 OK1 OK2 OK3
+
+mode: hypercube
+size: 8
+Times: 40us 58us 58us 58us 67us 69us 72us 74us
+OK: OK0 OK1 OK2 OK3 OK4 OK5 OK6 OK7
+
+mode: hypercube
+size: 16
+Times: 71us 91us 92us 93us 94us 94us 95us 95us 96us 96us 97us 97us 99us 100us 103us 104us
+OK: OK0 OK1 OK2 OK3 OK4 OK5 OK6 OK7 OK8 OK9 OK10 OK11 OK12 OK13 OK14 OK15
+
+mode: hypercube
+size: 24
+Times: 106us 127us 131us 133us 135us 137us 139us 140us 142us 144us 146us 147us 150us 155us 156us 163us 165us 168us 169us 170us 173us 175us 177us 183us
+OK: OK0 OK1 OK2 OK3 OK4 OK5 OK6 OK7 OK8 OK9 OK10 OK11 OK12 OK13 OK14 OK15 OK16 OK17 OK18 OK19 OK20 OK21 OK22 OK23

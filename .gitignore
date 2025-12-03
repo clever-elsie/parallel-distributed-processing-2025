@@ -3,7 +3,6 @@
 /.vscode/
 .env
 **/*.out
-**/*.txt
 **/*.eps
 
 report/**

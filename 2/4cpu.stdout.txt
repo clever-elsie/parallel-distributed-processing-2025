@@ -1,0 +1,5 @@
+./4-cpu.out 2>/dev/null
+Copy: 816 us
+Scala: 870 us
+Add: 650 us
+Triad: 603 us
