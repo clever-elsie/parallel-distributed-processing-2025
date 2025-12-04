@@ -59,43 +59,43 @@ int AllReduce_Linear(void* sendbuf, void*recvbuf, int count, MPI_Datatype dataty
 }
 
 int AllReduce_Square(void* sendbuf, void*recvbuf, int count, MPI_Datatype datatype, MPI_Op ope, MPI_Comm comm){
-	static int tag=0;
+  static int tag=0;
   auto [rank, size, type_size, pred]=AllReduceInfo(comm,datatype,ope);
   if(!type_size||!pred) return MPI_ERR_ARG;
 
-	char* sendbuf_local=reinterpret_cast<char*>(sendbuf==MPI_IN_PLACE?recvbuf:sendbuf);
-	char* reduced_buf=reinterpret_cast<char*>(sendbuf==MPI_IN_PLACE?malloc(type_size*count):recvbuf);
-	memset(reduced_buf, 0, count*type_size);
+  char* sendbuf_local=reinterpret_cast<char*>(sendbuf==MPI_IN_PLACE?recvbuf:sendbuf);
+  char* reduced_buf=reinterpret_cast<char*>(sendbuf==MPI_IN_PLACE?malloc(type_size*count):recvbuf);
+  memset(reduced_buf, 0, count*type_size);
   char** recvbuf_local=(char**)malloc(sizeof(char*)*size);
-	for(int i=0;i<size;++i)
-		recvbuf_local[i]=(char*)malloc(type_size*count);
+  for(int i=0;i<size;++i)
+    recvbuf_local[i]=(char*)malloc(type_size*count);
 
   MPI_Request *req=(MPI_Request*)malloc(2*size*sizeof(MPI_Request));
 
   for(int i=0;i<size;++i){
     MPI_Isend(sendbuf_local, count, datatype, i, tag, comm, req+i);
     MPI_Irecv(recvbuf_local[i], count, datatype, i, tag, comm, req+size+i);
-	}
+  }
   MPI_Waitall(2*size, req, MPI_STATUS_IGNORE);
   for(int i=0;i<size;++i)
     for(int j=0;j<count;++j)
       pred(recvbuf_local[i]+j*type_size, reduced_buf+j*type_size, reduced_buf+j*type_size);
   if(sendbuf==MPI_IN_PLACE){
-		memcpy(recvbuf, reduced_buf, count*type_size);
-		free(reduced_buf);
-	}
-	{ // destructor
-		++tag;
-		free(req);
-		for(int i=0;i<size;++i)
-			free(recvbuf_local[i]);
-		free(recvbuf_local);
-	}
+    memcpy(recvbuf, reduced_buf, count*type_size);
+    free(reduced_buf);
+  }
+  { // destructor
+    ++tag;
+    free(req);
+    for(int i=0;i<size;++i)
+      free(recvbuf_local[i]);
+    free(recvbuf_local);
+  }
   return MPI_SUCCESS;
 }
 
 int AllReduce_Ring(void* sendbuf, void*recvbuf, int count, MPI_Datatype datatype, MPI_Op ope, MPI_Comm comm){
-	static int tag=0;
+  static int tag=0;
   auto [rank, size, type_size, pred]=AllReduceInfo(comm,datatype,ope);
   if(!type_size||!pred) return MPI_ERR_ARG;
   const int bufsize=count*type_size;
@@ -119,7 +119,7 @@ int AllReduce_Ring(void* sendbuf, void*recvbuf, int count, MPI_Datatype datatype
 }
 
 int AllReduce_Tree(void* sendbuf, void*recvbuf, int count, MPI_Datatype datatype, MPI_Op ope, MPI_Comm comm){
-	static int tag=0;
+  static int tag=0;
   auto [rank, size, type_size, pred]=AllReduceInfo(comm,datatype,ope);
   if(!type_size||!pred) return MPI_ERR_ARG;
   const int parent = (rank-1>>1);
@@ -163,7 +163,7 @@ int AllReduce_Tree(void* sendbuf, void*recvbuf, int count, MPI_Datatype datatype
 }
 
 int AllReduce_HyperCube(void* sendbuf, void*recvbuf, int count, MPI_Datatype datatype, MPI_Op ope, MPI_Comm comm){
-	static int tag=0;
+  static int tag=0;
   auto [rank, size, type_size, pred]=AllReduceInfo(comm,datatype,ope);
   if(!type_size||!pred) return MPI_ERR_ARG;
 

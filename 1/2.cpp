@@ -54,7 +54,7 @@ pair red(){
   int sum=0;
   struct timeval begin,end;
   gettimeofday(&begin,NULL);
-#	pragma omp parallel for reduction(+: sum)
+# pragma omp parallel for reduction(+: sum)
   for(int i=0;i<limit;++i)
     ++sum;
   gettimeofday(&end,NULL);

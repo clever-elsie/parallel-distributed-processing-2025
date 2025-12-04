@@ -13,35 +13,35 @@ constexpr int ARRAYS=64;
 __global__ void L2Norm(int Elems, float*inputs, float*out){
   const int index=threadIdx.x;
   __shared__ float s_sum[32];
-	__shared__ float s_out;
-  if(threadIdx.x==0) s_out=0.0f;
   if(threadIdx.x<32) s_sum[threadIdx.x]=0.0f;
   __syncthreads();
-	const int loop=(Elems+blockDim.x-1)/blockDim.x;
-	for(int i=0;i<loop;++i){
-		const int idx=blockDim.x*i + index;
-		if(idx<Elems)
-			atomicAdd(&s_sum[threadIdx.x&31], inputs[idx]*inputs[idx]);
-	}
-	__syncthreads();
-	if(threadIdx.x<32)
-		atomicAdd(&s_out, s_sum[threadIdx.x]);
-	__syncthreads();
-	if(threadIdx.x==0)
-		*out=sqrt(s_out);
+  const int loop=(Elems+blockDim.x-1)/blockDim.x;
+  for(int i=0;i<loop;++i){
+    const int idx=blockDim.x*i + index;
+    if(idx<Elems)
+      atomicAdd(&s_sum[threadIdx.x&31], inputs[idx]*inputs[idx]);
+  }
+  __syncthreads();
+  if(threadIdx.x<32)
+    for(int i=1;i<32;i<<=1)
+      if((threadIdx.x&(i<<1)-1)==0)
+        atomicAdd(&s_sum[threadIdx.x], s_sum[threadIdx.x+i]);
+  __syncthreads();
+  if(threadIdx.x==0)
+    *out=sqrt(s_sum[0]);
 }
 
 void L2Norm_cpu(int Elems, float*inputs, float*out){
-	priority_queue<float,vector<float>,greater<float>> q;
+  priority_queue<float,vector<float>,greater<float>> q;
   for(int i=0;i<Elems;++i)
     q.push(inputs[i]*inputs[i]);
-	while(q.size()>1){
-		float a=q.top();
-		q.pop();
-		float b=q.top();
-		q.pop();
-		q.push(a+b);
-	}
+  while(q.size()>1){
+    float a=q.top();
+    q.pop();
+    float b=q.top();
+    q.pop();
+    q.push(a+b);
+  }
   *out=sqrt(q.top());
 }
 
@@ -88,8 +88,8 @@ int main(){
   bool is_ok=true;
   for(int i=0;i<num_array;++i)
     if(
-			fabs(out[i]-out_cpu[i])/max(out[i],out_cpu[i])>0.005f
-			&& fabs(out[i]-out_cpu[i])>0.1){
+      fabs(out[i]-out_cpu[i])/max(out[i],out_cpu[i])>0.005f
+      && fabs(out[i]-out_cpu[i])>0.1){
       is_ok=false;
       cout<<"out["<<i<<"]="<<out[i]<<" != out_cpu["<<i<<"]="<<out_cpu[i]<<endl;
       break;

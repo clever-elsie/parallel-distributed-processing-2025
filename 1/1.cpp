@@ -3,7 +3,7 @@
 
 int main(int argc, char**argv){
   int cur=0;
-#	pragma omp parallel
+# pragma omp parallel
   {
     int id=omp_get_thread_num();
     while(cur!=id);
